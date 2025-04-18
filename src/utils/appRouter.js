@@ -4,6 +4,7 @@ import Body from "../components/Body";
 import ContactUs from "../components/ContactUs"
 import Login from "../components/Login"
 import SignUp from "../components/SignUp"
+import SpecialtyDetail from "../components/SpecialityDetail";
 
 const appRouter = createBrowserRouter([
     {
@@ -25,7 +26,11 @@ const appRouter = createBrowserRouter([
             {
                 path: "signup",
                 Component: SignUp
-            }
+            },
+            {
+                path: "specialty/:name",
+                Component: SpecialtyDetail
+              }
         ]
     }   
 ])
