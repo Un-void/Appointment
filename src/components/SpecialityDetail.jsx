@@ -17,10 +17,6 @@ const SpecialtyDetail = () => {
       </h2>
       <div className="grid grid-cols-1 mt-12 sm:grid-cols-2 md:grid-cols-3 gap-4">
         {doctors.map((doc) => (
-          // <div key={doc.id} className="bg-white p-4 shadow rounded">
-          //   <p className="font-semibold">{doc.name}</p>
-          //   <p className="text-sm text-gray-600">{doc.specialization}</p>
-          // </div>
           <DocCard {...doc} key={doc.id}/>
         ))}
       </div>
