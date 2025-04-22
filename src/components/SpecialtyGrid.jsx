@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { HeartPulse, Bone, Stethoscope, Eye, Sun, Pill, Brain, Syringe, Thermometer, Ear } from 'lucide-react';
-import { Link } from 'react-router'; // Import Link
-import useData from "../utils/useData";
+import { Link } from 'react-router';
 
 const specialties = [
   { name: 'Cardiology', icon: <HeartPulse size={32} /> },
@@ -10,7 +9,7 @@ const specialties = [
   { name: 'Dermatology', icon: <Sun size={32} /> },
   { name: 'Pediatrics', icon: <Pill size={32} /> },
   { name: 'Neurology', icon: <Brain size={32} /> },
-  { name: 'Ophthalmology', icon: <Eye size={32} /> },
+  { name: 'Opthalmology', icon: <Eye size={32} /> },
   { name: 'Fever Clinic', icon: <Thermometer size={32} /> },
   { name: 'ENT', icon: <Ear size={32} /> },
   { name: 'Vaccination', icon: <Syringe size={32} /> },

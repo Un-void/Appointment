@@ -5,6 +5,8 @@ import ContactUs from "../components/ContactUs"
 import Login from "../components/Login"
 import SignUp from "../components/SignUp"
 import SpecialtyDetail from "../components/SpecialityDetail";
+import DocCard from "../components/DocCard";
+
 
 const appRouter = createBrowserRouter([
     {
@@ -30,7 +32,11 @@ const appRouter = createBrowserRouter([
             {
                 path: "specialty/:name",
                 Component: SpecialtyDetail
-              }
+            },
+            {
+                path: "specialty/:name/:docId",
+                Component: DocCard
+            }
         ]
     }   
 ])

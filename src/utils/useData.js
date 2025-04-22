@@ -8,7 +8,8 @@ const useData = () => {
     pediatrics: [],
     orthopedics: [],
     physician: [],
-    physiotherapy: []
+    opthalmology: [],
+    ent: []
   });
 
   useEffect(() => {
@@ -23,8 +24,9 @@ const useData = () => {
           neurology: jsonData.filter(doc => doc.specialization === "Neurology"),
           pediatrics: jsonData.filter(doc => doc.specialization === "Pediatrics"),
           orthopedics: jsonData.filter(doc => doc.specialization === "Orthopedics"),
-          physician: jsonData.filter(doc => doc.specialization === "Physician"),
-          physiotherapy: jsonData.filter(doc => doc.specialization === "Physiotherapy"),
+          physician: jsonData.filter(doc => doc.specialization === "physician"),
+          opthalmology: jsonData.filter(doc => doc.specialization === "opthalmology"),
+          ent: jsonData.filter(doc => doc.specialization === "ENT"),
         });
 
       } catch (error) {
