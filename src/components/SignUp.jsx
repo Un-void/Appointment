@@ -1,86 +1,73 @@
-import React, { useState } from 'react';
-import Popup from './Popup'; 
+import { Link } from 'react-router';
+import { User, Mail, Lock } from 'lucide-react';
 
 const SignUp = () => {
-  const [form, setForm] = useState({
-    name: '',
-    username: '',
-    password: '',
-    confirmPassword: ''
-  });
-
-  const [showPopup, setShowPopup] = useState(false);
-
-  const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (form.password !== form.confirmPassword) {
-      alert("Passwords do not match");
-      return;
-    }
-    console.log("Form Submitted", form);
-    setForm({
-      name: '',
-      username: '',
-      password: '',
-      confirmPassword: ''
-    });
-    setShowPopup(true);
-  };
-
   return (
-    <div className="max-w-md mx-auto p-6 bg-white rounded-2xl shadow-md relative mt-40 sm:mt-32">
-      <h2 className="text-2xl font-bold mb-4 text-center text-[#0353a4]">Sign Up</h2>
-      <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-        <input
-          type="text"
-          name="name"
-          placeholder="Full Name"
-          value={form.name}
-          onChange={handleChange}
-          className="border p-2 rounded-lg"
-          required
-        />
-        <input
-          type="text"
-          name="username"
-          placeholder="Username"
-          value={form.username}
-          onChange={handleChange}
-          className="border p-2 rounded-lg"
-          required
-        />
-        <input
-          type="password"
-          name="password"
-          placeholder="Password"
-          value={form.password}
-          onChange={handleChange}
-          className="border p-2 rounded-lg"
-          required
-        />
-        <input
-          type="password"
-          name="confirmPassword"
-          placeholder="Confirm Password"
-          value={form.confirmPassword}
-          onChange={handleChange}
-          className="border p-2 rounded-lg"
-          required
-        />
-        <button
-          type="submit"
-          className="bg-[#0353a4] text-white p-2 rounded-lg hover:bg-[#023e7d] transition"
-        >
+      <div className="max-w-md w-full m-auto mt-40">
+        <h2 className="text-3xl md:text-4xl font-bold text-blue-900 font-mono text-center mb-8">
           Sign Up
-        </button>
-      </form>
-
-      {showPopup && <Popup message="Signup Successful!" onClose={() => setShowPopup(false)} />}
-    </div>
+        </h2>
+        <div className="bg-gradient-to-br w-full from-gray-800 via-gray-700 to-gray-600 p-8 rounded-xl shadow-lg transform transition-all duration-500 ease-in-out hover:-translate-y-2 hover:shadow-2xl">
+          <div className="space-y-6">
+            <div>
+              <label htmlFor="name" className="block text-sm font-medium text-gray-200">
+                Full Name
+              </label>
+              <div className="mt-1 relative">
+                <User size={20} className="absolute left-3 top-3.5 text-gray-400" />
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  className="w-full pl-10 p-3 rounded-lg bg-gray-800 text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-400 transition-colors duration-300"
+                  placeholder="Your Full Name"
+                />
+              </div>
+            </div>
+            <div>
+              <label htmlFor="email" className="block text-sm font-medium text-gray-200">
+                Email
+              </label>
+              <div className="mt-1 relative">
+                <Mail size={20} className="absolute left-3 top-3.5 text-gray-400" />
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  className="w-full pl-10 p-3 rounded-lg bg-gray-800 text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-400 transition-colors duration-300"
+                  placeholder="Your Email"
+                />
+              </div>
+            </div>
+            <div>
+              <label htmlFor="password" className="block text-sm font-medium text-gray-200">
+                Password
+              </label>
+              <div className="mt-1 relative">
+                <Lock size={20} className="absolute left-3 top-3.5 text-gray-400" />
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  className="w-full pl-10 p-3 rounded-lg bg-gray-800 text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-400 transition-colors duration-300"
+                  placeholder="Your Password"
+                />
+              </div>
+            </div>
+            <button
+              className="w-full p-3 rounded-lg bg-blue-900 text-white font-semibold transition-all duration-300 ease-in-out transform hover:scale-105 hover:bg-blue-800"
+            >
+              Create Account
+            </button>
+          </div>
+          <p className="text-center text-gray-200 mt-6">
+            Already have an account?{' '}
+            <Link to="/login" className="text-blue-400 hover:underline">
+              Login
+            </Link>
+          </p>
+        </div>
+      </div>
   );
 };
 
