@@ -36,7 +36,7 @@ const SpecialtyDetail = () => {
               className="p-2 rounded-lg mt-4 bg-blue-900 text-center text-white hover:bg-blue-800"
               to={`/specialty/${name}/${doc.id}`}
             >
-              Book Now
+              View More ...
             </Link>
           </div>
         ))}

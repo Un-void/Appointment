@@ -1,13 +1,17 @@
-import { useParams, Link } from 'react-router';
+import React, { useContext } from 'react';
+import { useParams, Link, useNavigate } from 'react-router';
 import useData from '../utils/useData';
-import Logo from '../assets/ProfileLogo.png'
+import Logo from '../assets/ProfileLogo.png';
+import { AuthContext } from '../context/AuthContext.jsx';
+import Appointment from './Appointment.jsx'; // Import the new Appointment component
 
 const DocCard = () => {
   const { name, docId } = useParams();
   const specialtyData = useData();
+  const { user } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const doctors = specialtyData[name?.toLowerCase()] ?? [];
-
   const doctor = doctors.find((doc) => doc.id === parseInt(docId));
 
   if (!doctor) {
@@ -38,9 +42,17 @@ const DocCard = () => {
         <p className="text-xl">Clinic Address - {doctor.city}, {doctor.address}</p>
         <p className="text-xl">Consultation Charges - {doctor.fees} ₹</p>
         <p className="text-md">Connect @- {doctor.email}</p>
-        <div className='text-right'>
-          <Link className='p-3 bg-blue-900 rounded-lg'>Request an appointment</Link>
-        </div>
+        {user ? (
+          <div className="mt-4">
+            <Appointment doctorId={doctor.id} />
+          </div>
+        ) : (
+          <div className="mt-4">
+            <p className="text-yellow-400">
+              Please <Link to="/login" className="text-blue-400">login</Link> to book an appointment.
+            </p>
+          </div>
+        )}
       </div>
     </div>
   );

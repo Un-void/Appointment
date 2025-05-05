@@ -1,12 +1,12 @@
 import { createBrowserRouter } from "react-router";
 import App from "../App";
 import Body from "../components/Body";
-import ContactUs from "../components/ContactUs"
-import Login from "../components/Login"
-import SignUp from "../components/SignUp"
+import ContactUs from "../components/ContactUs";
+import Login from "../components/Login";
+import SignUp from "../components/SignUp";
 import SpecialtyDetail from "../components/SpecialityDetail";
 import DocCard from "../components/DocCard";
-
+import UserDashboard from "../components/UserDashboard.jsx"; // Add this import
 
 const appRouter = createBrowserRouter([
     {
@@ -14,15 +14,15 @@ const appRouter = createBrowserRouter([
         Component: App,
         children: [
             {
-                path:"",
+                path: "",
                 Component: Body
             },
             {
-                path:"login",
+                path: "login",
                 Component: Login
             },
             {
-                path:"contact",
+                path: "contact",
                 Component: ContactUs
             },
             {
@@ -36,9 +36,13 @@ const appRouter = createBrowserRouter([
             {
                 path: "specialty/:name/:docId",
                 Component: DocCard
+            },
+            {
+                path: "dashboard", // Add this route
+                Component: UserDashboard
             }
         ]
     }   
-])
+]);
 
-export default appRouter
+export default appRouter;
