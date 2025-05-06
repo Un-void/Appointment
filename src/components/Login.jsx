@@ -79,7 +79,7 @@ const Login = () => {
     try {
       const res = await axios.post('http://localhost:5000/api/users/login', formData);
       login(res.data.token);
-      navigate('/');
+      navigate('/home');
     } catch (err) {
       setError(err.response?.data?.message || 'Login failed');
     }
@@ -129,10 +129,7 @@ const Login = () => {
               />
             </div>
           </div>
-          <button
-            type="submit"
-            className="w-full p-3 rounded-lg bg-blue-900 text-white font-semibold transition-all duration-300 ease-in-out transform hover:scale-105 hover:bg-blue-800"
-          >
+          <button type="submit" className="w-full p-3 rounded-lg bg-blue-900 text-white font-semibold transition-all duration-300 ease-in-out transform hover:scale-105 hover:bg-blue-800">
             Sign In
           </button>
         </form>

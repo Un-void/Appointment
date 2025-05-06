@@ -7,6 +7,7 @@ import SignUp from "../components/SignUp";
 import SpecialtyDetail from "../components/SpecialityDetail";
 import DocCard from "../components/DocCard";
 import UserDashboard from "../components/UserDashboard.jsx"; // Add this import
+import LandingPage from "../components/LandingPage.jsx";
 
 const appRouter = createBrowserRouter([
     {
@@ -15,6 +16,10 @@ const appRouter = createBrowserRouter([
         children: [
             {
                 path: "",
+                Component: LandingPage
+            },
+            {
+                path: "/home",
                 Component: Body
             },
             {
